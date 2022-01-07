@@ -1,0 +1,63 @@
+{
+    "header": {
+        "process_time": 9,
+        "messages": "Your request has been processed successfully"
+    },
+    "data": {
+        "total_data": 31,
+        "shop": {
+            "id": 1337,
+            "name": "Toko Tangerang",
+            "uri": "https://www.tokopedia.com/tokotangerang",
+            "location": "Banten"
+        },
+        "products": [
+            {
+                "id": 12345,
+                "name": "Rinso 100gr",
+                "childs": null,
+                "url": "https://www.tokopedia.com/tokotangerang/toko-rinso-100gr?whid=0",
+                "image_url": "https://images.tokopedia.net/img/cache/200-square/VqbcmM/2021/5/12/b02jx372-48f6-4d09-9fe8-bb233ad39446.jpg",
+                "image_url_700": "https://images.tokopedia.net/img/cache/700/VqbcmM/2021/5/12/b02jx372-48f6-4d09-9fe8-bb233ad39446.jpg",
+                "price": "Rp10.000",
+                "shop": {
+                    "id": 1337,
+                    "name": "Toko Tangerang",
+                    "url": "https://www.tokopedia.com/tokotangerang",
+                    "is_gold": true,
+                    "location": "Banten",
+                    "city": "Banten",
+                    "reputation": "https://inbox.tokopedia.com/reputation/v1/badge/shop/1337",
+                    "clover": "https://clover.tokopedia.com/badges/merchant/v1?shop_id=1337",
+                    "is_official": false,
+                    "is_power_badge": false
+                },
+                "wholesale_price": [],
+                "courier_count": 3,
+                "condition": 1,
+                "category_id": 1234,
+                "category_name": "Kebutuhan Rumah Tangga",
+                "category_breadcrumb": "rumah-tangga/kebutuhan/kebersihan",
+                "department_id": 2222,
+                "labels": [],
+                "badges": [
+                    {
+                        "title": "Power Merchant Pro Badge",
+                        "image_url": "https://images.tokopedia.net/img/goldmerchant/pm_activation/badge/PM%20Pro%20Small.png",
+                        "show": true
+                    }
+                ],
+                "is_featured": 0,
+                "rating": 4,
+                "count_review": 33,
+                "original_price": "",
+                "discount_expired": "",
+                "discount_percentage": 0,
+                "sku": "100011111",
+                "stock": 10,
+                "status": 0,
+                "is_preorder": false
+            }
+        ]
+    }
+}

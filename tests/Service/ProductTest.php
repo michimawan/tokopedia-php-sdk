@@ -814,4 +814,59 @@ class ProductTest extends TestCase
 
         $this->assertEquals($deserialized, $response);
     }
+
+    public function testGetAllActiveProductWithSuccessResponse1()
+    {
+        $shopId = 1337;
+        $rows = 10;
+        $start = 0;
+        $product     = new Product($this->getAuthorization());
+        $mockHandler = new MockHandler();
+        $httpClient  = new Client(['handler' => $mockHandler]);
+        $contents    = file_get_contents(
+            __DIR__ . '/../data-fixtures/product/get-all-active-product-ok-1.json'
+        );
+
+        $mockHandler->append(new Response(
+            200,
+            ['Content-Type' => 'application/json'],
+            $contents
+        ));
+
+        $product->setHttpClient($httpClient);
+
+        $deserialized = json_decode($contents, true);
+        $response     = json_decode(
+            $product->getAllActiveProduct($shopId, $rows, $start),
+            true
+        );
+
+        $this->assertEquals($deserialized, $response);
+    }
+
+    public function testGetAllActiveProductWithFailedResponse1()
+    {
+        $product     = new Product($this->getAuthorization());
+        $mockHandler = new MockHandler();
+        $httpClient  = new Client(['handler' => $mockHandler]);
+        $contents    = file_get_contents(
+            __DIR__ . '/../data-fixtures/product/get-all-active-product-fail-1.json'
+        );
+
+        $mockHandler->append(new Response(
+            400,
+            ['Content-Type' => 'application/json'],
+            $contents
+        ));
+
+        $product->setHttpClient($httpClient);
+
+        $deserialized = json_decode($contents, true);
+        $response     = json_decode(
+            $product->getAllActiveProduct(123),
+            true
+        );
+
+        $this->assertEquals($deserialized, $response);
+    }
 }

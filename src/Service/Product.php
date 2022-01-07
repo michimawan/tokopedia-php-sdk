@@ -474,6 +474,43 @@ class Product extends Resource
     }
 
     /**
+     * Get All Active Product
+     *
+     * @param int $shopID For every fs_id that related to more than one shop_id, request must contain shop_id.
+     * @param string $rows The total number of products to be shown.
+     * @param string $start Show results from n-th product.
+     * @return string
+     */
+    public function getAllActiveProduct(?int $shopId = NULL, int $rows = 10, int $start = 0)
+    {
+        $endpoint = sprintf(
+            '/inventory/v1/fs/%d/product/list',
+            $this->getFulfillmentServiceID()
+        );
+
+        $queryParams = [];
+
+        if (!is_null($shopId)) {
+            $queryParams['shop_id'] = $shopId;
+        }
+
+        $queryParams['rows'] = $rows;
+        $queryParams['start'] = $start;
+
+        $serialized = http_build_query($queryParams);
+        $response   = $this->call(
+            'GET',
+            sprintf(
+                '%s%s',
+                $endpoint,
+                empty($serialized) ? '' : ('?' . $serialized)
+            )
+        );
+
+        return $this->getContents($response);
+    }
+
+    /**
      * @return void
      * @throws InvalidArgumentException When sort options is invalid.
      */
